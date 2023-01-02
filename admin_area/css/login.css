@@ -1,0 +1,13 @@
+#fo{
+    margin: 12%;
+    border: solid rgba(8, 8, 8, 0.582);
+    border-radius: 2%;
+    background: darkgrey;
+    box-shadow: 32px grey;
+    border-bottom: 11px solid rgba(8, 8, 8, 0.582);
+    border-right: 11px  solid rgba(8, 8, 8, 0.582);
+
+}
+#adm{
+  margin-top: 4%;
+}
