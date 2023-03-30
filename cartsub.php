@@ -16,7 +16,9 @@ if (isset($_POST['subm'])) {
 $uquery="select * from cart where p_id =$p_id";
 $ruquery=mysqli_query($dbs,$uquery);
 $fuquery=mysqli_fetch_array($ruquery);
-$comemail=$fuquery['p_id'];
+if ($fuquery) {
+  # code...
+  $comemail=$fuquery['p_id'];
 if ($comemail==$p_id) {
   $cuquer="update cart set qty=$pro_quant,size='$product_size',price='$price' where p_id=$p_id and user_email='$useremail'";
   $rcuquery=mysqli_query($dbs,$cuquer);
@@ -34,6 +36,10 @@ else {
     echo"<script>alert('not saved error occured in submision')</script>";
     echo"<script>window.open('shop.php','_self')</script>";
 }
+}else{
+  echo 'cannot be null';
+}
+
 
  
 

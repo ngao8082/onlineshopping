@@ -2,9 +2,9 @@
 
 include_once("includes/db.php");
 session_start();
-$_SESSION['email']=$_POST['email'];
+$_SESSION['adm_name']=$_POST['adm_name'];
 $_SESSION['passw']=$_POST['passw'];  
-$em = $_SESSION['email'];
+$em = $_SESSION['adm_name'];
 $pass= $_SESSION['passw'];
 if(isset($_POST['login'])) {
     $seleadm="select * from admin_table where adm_pass='$pass' && adm_name='$em'";
@@ -12,7 +12,8 @@ if(isset($_POST['login'])) {
     $rrow=mysqli_num_rows($rseleadm);
     $fsele=mysqli_fetch_array($rseleadm);
     $fpassw=$fsele['adm_pass'];
-    if ($pass==$fpassw) {
+    $fem=$fsele['adm_name'];
+    if ($pass==$fpassw && $em==$fem) {
         echo "<script>alert('welcome back this is admin area')</script>";
         echo "<script>window.open('index.php?dashboard','_self')</script>";
     }else {

@@ -33,8 +33,14 @@ function funPro(){
         $produc_sale_prices="";
        }
 
-       if ($product_label=="") {
-       
+       if ($product_label=="new") {
+        $product_label="
+        <a href='' class='label $product_label'>
+        <div class='actuallabel'>$product_label</div>
+        <div class='actualbacground'></div>
+        
+        <a/>
+        ";
        }else {
         $product_label="
         <a href='' class='label $product_label'>
@@ -106,14 +112,17 @@ function cartAmount(){
   $buyert="select * from buyertable where cusname='$cartemail' && pass='$cartpass'";
   $rbuyert= mysqli_query($dbs,$buyert);
   $frbyert=mysqli_fetch_array($rbuyert);
-  $femail=$frbyert['myemail'];
+  if ($frbyert) {
+    # code...
+    $femail=$frbyert['myemail'];
   $cartA="select * from cart where email='$femail'";
   $rcartA= mysqli_query($dbs,$cartA);
   $noitems=mysqli_num_rows($rcartA);
   echo $noitems;
-  
- 
-  
+  }else{
+    echo null;
+  }
+
   
 
 }
@@ -124,8 +133,9 @@ function cartPrice(){
   global $dbs;
   $buyert="select * from buyertable where cusname='$cartemail' && pass='$cartpass'";
   $rbuyert= mysqli_query($dbs,$buyert);
-  $frbyert=mysqli_fetch_array($rbuyert);
-  $femail=$frbyert['myemail'];
+  $frbyert=mysqli_fetch_assoc($rbuyert);
+  if ($frbyert) {
+    $femail=$frbyert['myemail'];
   $cartA="select * from cart where email='$femail'";
   $rcartA= mysqli_query($dbs,$cartA);
   $noitems=mysqli_num_rows($rcartA);
@@ -137,6 +147,10 @@ function cartPrice(){
   $total=$total+$subprice;
   }
   echo "$".$total;
+  }else{
+    echo null;
+  }
+  
 }
 //cart price end
 //cart amount end
@@ -294,7 +308,7 @@ if (!isset($_GET['p_cat'])) {
     $sqls=mysqli_query($dbs,$peg);
     while($row_prod = mysqli_fetch_array($sqls)) {
       $pro_id =$row_prod['product_id'];
-      $pro_url =$row_prod['product_url'];
+      // $pro_url =$row_prod['product_url'];
       $produc_title =$row_prod['product_title'];
       $produc_img1 = $row_prod['product_img1'];
       $produc_price =$row_prod['product_price'];
@@ -309,7 +323,14 @@ if (!isset($_GET['p_cat'])) {
        }
 
        if ($product_label=="") {
-       
+        
+        $product_label="
+        <a href='' class='label $product_label'>
+        <div class='actuallabel'>$product_label</div>
+        <div class='actualbacground'></div>
+        
+        <a/>
+        ";
        }else {
         $product_label="
         <a href='' class='label $product_label'>
@@ -322,7 +343,7 @@ if (!isset($_GET['p_cat'])) {
       
       echo"
       
-      <div class='col sm-6 col-md-4 shadow p-3 mb-5 bg-white rounded' id='produc'>
+      <div class='col-md-3 shadow p-3 mb-5 bg-white rounded' id='produc'>
                 <a href='detail.php?pro_id=$pro_id'>
                      <img src='admin_area/propic/$produc_img1' class='img-fluid' alt='$produc_img1'>
                 </a>
@@ -340,10 +361,10 @@ if (!isset($_GET['p_cat'])) {
           </div>
         <div class='row'>
         <div class='col-md-6'>
-          <a href='detail.php?pro_id=$pro_url' class='btn btn-secondary btn-sm'>view detail</a>
+          <a href='detail.php?pro_id=$pro_id' class='btn btn-secondary btn-sm'>view detail</a>
           </div>
           <div class='col-md-6'>
-          <a href='detail.php?pro_id=$pro_url' class='btn btn-success btn-sm'> <i class='fa fa-plus text-dark' aria-hidden='true'></i><i class='fa fa-shopping-cart text-dark' aria-hidden='true'></i> Cart</a>
+          <a href='detail.php?pro_id=$pro_id' class='btn btn-success btn-sm'> <i class='fa fa-plus text-dark' aria-hidden='true'></i><i class='fa fa-shopping-cart text-dark' aria-hidden='true'></i> Cart</a>
           </div>
          
         </div>
@@ -356,7 +377,7 @@ if (!isset($_GET['p_cat'])) {
   }else {
   echo"
   
-   <ul class='pagination justify-content-end'>
+   <ul class='pagination justify-content-center'>
      <center>
         <li class='page-item'>
           <a class='page-link' href='shop.php?page=$previous'>Previous</a>
@@ -382,6 +403,7 @@ if (!isset($_GET['p_cat'])) {
    </li>
      </ul>
      </center>";
+     
     }
   }
 }

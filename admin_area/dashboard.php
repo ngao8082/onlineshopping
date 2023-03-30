@@ -4,7 +4,7 @@ if (!isset($_SESSION['passw'])) {
 }else {
   
 $passwo=$_SESSION['passw'];
-$usernam=$_SESSION['email'];
+$usernam=$_SESSION['adm_name'];
 $myorder="select * from my_order";
 $rmyorder=mysqli_query($conn,$myorder);
 $rowmyorders=mysqli_num_rows($rmyorder);

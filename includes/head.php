@@ -7,9 +7,10 @@ include_once("func/func.php");
 global $dbs;
 if (isset($_GET['pro_id'])) {
    $proc_id=$_GET['pro_id'];
-   $get_products="select * from product where product_url='$proc_id'";
+   $get_products="select * from product where product_id='$proc_id'";
    $con_get_products=mysqli_query($dbs,$get_products);
    $rows_pros=mysqli_fetch_array($con_get_products);
+   if ($rows_pros) {
     $p_cate_id  =  $rows_pros['p_cat_id'];
     $product_title =  $rows_pros['product_title'];
     $p_cate_desc  =  $rows_pros['product_desc'];
@@ -22,6 +23,8 @@ if (isset($_GET['pro_id'])) {
     $rows_pros_cat = mysqli_fetch_array($run_pros_cat);
     $cat_title =  $rows_pros_cat['p_cat_title'];
 }
+   }
+    
 
 ?>
 
@@ -40,7 +43,7 @@ if (isset($_GET['pro_id'])) {
   <link rel="stylesheet" href="fontawesome-free-5.12.0-web/css/fontawesome.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="fontawesome-free-5.12.0-web/css/fontawesome.min.css">
+  <link rel="stylesheet" href="css/all.css">
 </head>
 
 <body>
@@ -60,33 +63,33 @@ if (isset($_GET['pro_id'])) {
          ?>
     
     </a>
-    <a href="cart.php" class="text-light"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?php cartAmount()?> Items in the cart | total sub-price:<?php cartPrice()?></a> 
+    <a href="cart.php" class="text-light"><i class="fab fa-shopping-cart" aria-hidden="true"></i> <?php cartAmount()?> Items in the cart | total sub-price:<?php cartPrice()?></a> 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
       <ul class="nav justify-content-end  text-white " id="navbarNav">
         <li class="nav-item">
-          <a class="nav-link active text-white" href="register.php"><i class="fa fa-address-book" aria-hidden="true"></i> Register|</a>  
+          <a class="nav-link active text-white" href="register.php"><i class="fab fa-address-book" aria-hidden="true"></i> Register|</a>  
         </li>
         <li class="nav-item">
         <?php
         if (!isset($_SESSION['passwo'])) {
-          echo"<a class='nav-link text-white' href='customer/myaccount.php'>|<i class='fa fa-user' aria-hidden='true'></i> My account|</a>";
+          echo"<a class='nav-link text-white' href='customer/myaccount.php'>|<i class='fab fa-user' aria-hidden='true'></i> My account|</a>";
         }else {
-          echo"<a class='nav-link text-white' href='customer/myaccount.php?my_orders'>|<i class='fa fa-user' aria-hidden='true'></i> My account|</a>";
+          echo"<a class='nav-link text-white' href='customer/myaccount.php?my_orders'>|<i class='fab fa-user' aria-hidden='true'></i> My account|</a>";
         }
           
           ?>
           
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="cart.php">|<i class="fa fa-shopping-cart" aria-hidden="true"></i> Go to cart|</a> 
+          <a class="nav-link text-white" href="cart.php">|<i class="fab fa-shopping-cart" aria-hidden="true"></i> Go to cart|</a> 
         </li>
         <li class="nav-item">
           <?php
            if (!isset($_SESSION['passwo'])) {
-             echo"<a class='nav-link text-white' href='customer/signup.php'>|<i class='fa fa-sign-in' aria-hidden='true'></i> Login|</a>";
+             echo"<a class='nav-link text-white' href='customer/signup.php'>|<i class='fab fa-sign-in' aria-hidden='true'></i> Login|</a>";
            }else {
-             echo"<a class='nav-link text-white' href='customer/signout.php'>|<i class='fa fa-power-off' aria-hidden='true'></i> Logout|</a>";
+             echo"<a class='nav-link text-white' href='customer/signout.php'>|<i class='fab fa-power-off' aria-hidden='true'></i> Logout|</a>";
            }
          ?>
           
@@ -102,26 +105,26 @@ if (isset($_GET['pro_id'])) {
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="header.php"><i class="fa fa-home" aria-hidden="true"></i> Home<span class="sr-only">(current)</span></a> 
+          <a class="nav-link" href="index.php"><i class="fab fa-home" aria-hidden="true"></i> Home<span class="sr-only">(current)</span></a> 
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="shop.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a> 
+          <a class="nav-link" href="shop.php"><i class="fab fa-shopping-bag" aria-hidden="true"></i> Shop</a> 
         </li>
         <li class="nav-item">
         <?php
         if (!isset($_SESSION['passwo'])) {
-          echo"<a class='nav-link' href='customer/myaccount.php'><i class='fa fa-user' aria-hidden='true'></i> My account</a>";
+          echo"<a class='nav-link' href='customer/myaccount.php'><i class='fab fa-user' aria-hidden='true'></i> My account</a>";
         }else {
-          echo"<a class='nav-link' href='customer/myaccount.php?my_orders'> <i class='fa fa-user' aria-hidden='true'></i>My account</a>";
+          echo"<a class='nav-link' href='customer/myaccount.php?my_orders'> <i class='fab fa-user' aria-hidden='true'></i>My account</a>";
         }
           
           ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> 
+          <a class="nav-link" href="cart.php"><i class="fab fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> 
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="contact.php"><i class="fa fa-phone" aria-hidden="true"></i> Contact us</a> 
+          <a class="nav-link " href="contact.php"><i class="fab fa-phone" aria-hidden="true"></i> Contact us</a> 
         </li>
       </ul>
     </div>
@@ -129,7 +132,7 @@ if (isset($_GET['pro_id'])) {
         style="height:20px;padding:0px;"><?php cartAmount()?> Items added to cart
         </a>
         <button class="btn btn-success">
-        <i class="fa fa-search " aria-hidden="true" data-toggle="collapse" data-target="#searchform"></i>
+        <i class="fab fa-search " aria-hidden="true" data-toggle="collapse" data-target="#searchform"></i>
         </button>
     <form class="form-inline my-2 my-lg-0 collapse" id="searchform">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width:50%;">

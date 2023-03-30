@@ -43,12 +43,17 @@ include_once("includes/db.php");
                         echo"<i class='fa fa-sign-in' aria-hidden='true'></i> Login first";
                     } else{
                         $pass=$_SESSION['passw'];
-                        $emai=$_SESSION['email'];
+                        $emai=$_SESSION['adm_name'];
                         $selpro="select * from admin_table where adm_pass='$pass' && adm_name='$emai'";
                         $ruselpro=mysqli_query($conn,$selpro);
                         $fetchruselpro=mysqli_fetch_array($ruselpro);
+                        if (! $fetchruselpro) {
+                            # code...
+                            echo 'cannot be null';
+                        }else{
                         $admimg=$fetchruselpro['adm_image'];
                         echo $fetchruselpro['adm_name'];
+                    }
                     }
                     ?></a>
                 <ul class="collapse" id="dsa">

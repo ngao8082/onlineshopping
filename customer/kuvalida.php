@@ -10,7 +10,7 @@
     
     $passs=$_POST['username'];
     $cusnamel=$_POST['passwo'];
-    $logquer = "select * from buyertable where pass='$cusnamel'";
+    $logquer = "select * from buyertable where pass='$cusnamel' && cusname='$passs' ";
     $querlo=mysqli_query($conn,$logquer);
     while($Queftech= mysqli_fetch_array($querlo)){
     //  $Qnum= mysqli_num_rows($querlo);
@@ -41,7 +41,8 @@
         $_SESSION['passwo']=$cusnamel;
         echo"<script>window.open('myaccount.php?my_orders','_self')</script>";
    }else{
-       echo"<script>window.open('../header.php','_self')</script>";
+    echo"<script>alert('logged into your acount')</script>";
+       echo"<script>window.open('../index.php','_self')</script>";
    }
 }
 echo"<script>window.open('myaccount.php?my_orders','_self')</script>";

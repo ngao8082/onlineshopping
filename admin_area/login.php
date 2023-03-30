@@ -21,7 +21,7 @@
     <hr>
         <div class="form-group row">
             <div class="col-sm-12">
-                <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Name">
+                <input type="text" name="adm_name" class="form-control" id="inputEmail3" placeholder="Name">
             </div>
         </div>
         <div class="form-group row">

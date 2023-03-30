@@ -27,7 +27,7 @@ include_once("func/func.php");
             $rvisiblecart=mysqli_query($dbs,$visiblecart);
             $frvisiblecart=mysqli_fetch_array($rvisiblecart);
             $custommail=$frvisiblecart['myemail'];
-            $displaycart="select * from cart where user_email='$custommail'";
+            $displaycart="select * from cart where email='$custommail'";
             $rdisplaycart=mysqli_query($dbs,$displaycart);
             $rowRdisplay=mysqli_num_rows($rdisplaycart);
             
@@ -98,7 +98,7 @@ include_once("func/func.php");
                         </div>
                         <div class="row">
                             <div class=" form col justify-content-start">
-                                <a href="header.php" class="btn btn-success">continue shopping</a>
+                                <a href="index.php" class="btn btn-success">continue shopping</a>
                             </div>
                             <div class=" form col justify-content-end" style="padding-bottom:px;">
                                 <button class="btn btn-secondary" type="submit">

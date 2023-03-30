@@ -1,7 +1,7 @@
 <?php
 include_once("cincludes\headed.php");
 include_once("cincludes\cdb.php");
-$selectterms="select * from codnition_terms";
+$selectterms="select * from condition_terms";
 $runselectterms=mysqli_query($conn,$selectterms);
 ?>
 <div class="container">

@@ -81,10 +81,10 @@
         <h4 class="text-white">Keep In Touch</h4>
         <p>
             <a href="" class=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-google plus" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-envelope" aria-hidden="true"></i></a>
-            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href=""><i class="fab fa-google plus" aria-hidden="true"></i></a>
+            <a href=""><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href=""><i class="fab fa-envelope" aria-hidden="true"></i></a>
+            <a href=""><i class="fab fa-twitter" aria-hidden="true"></i></a>
         </p>
     </div>
 </div>

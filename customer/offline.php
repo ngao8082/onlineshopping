@@ -15,7 +15,7 @@ if (isset($_GET['c_offpay'])) {
     $ruselcu=mysqli_query($conn,$selcu);
     $fruselcu=mysqli_fetch_array($ruselcu);
     $em=$fruselcu['myemail'];
-    $selca="select * from cart where user_email='$em'";
+    $selca="select * from cart where email='$em'";
     $ruselca=mysqli_query($conn,$selca);
     $na=mysqli_num_rows($ruselca);    
     while ($fruselca=mysqli_fetch_array($ruselca)) {

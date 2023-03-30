@@ -16,8 +16,8 @@ include_once("../func/func.php");
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  <link type="text/css" rel="stylesheet" href="fontawesome-free-5.12.0-web/css/fontawesome.min.css">
-  <link rel="stylesheet" href="fontawesome-free-5.12.0-web/css/fontawesome.css">
+  
+  <link rel="stylesheet" href="css\all.css">
 </head>
 
 <body>
@@ -36,19 +36,19 @@ include_once("../func/func.php");
            }
          ?>
          </a>
-    <a href="checkout.php" class="text-light"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?php cartAmount()?> Items in the cart | total sub-price:<?php cartPrice()?></a>
+    <a href="checkout.php" class="text-light"><i class="fas fa-shopping-cart"></i> <?php cartAmount()?> Items in the cart | total sub-price:<?php cartPrice()?></a>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
       <ul class="nav justify-content-end  text-white " id="navbarNav">
         <li class="nav-item">
-          <a class="nav-link active text-white" href="../register.php"><i class="fa fa-address-book" aria-hidden="true"></i> Register|</a>
+          <a class="nav-link active text-white" href="../register.php"><i class="fab fa-address-book" aria-hidden="true"></i> Register|</a>
         </li>
         <li class="nav-item">
         <?php
         if (!isset($_SESSION['passwo'])) {
-          echo"<a class='nav-link text-white' href='myaccount.php'>|<i class='fa fa-user' aria-hidden='true'></i> My Account|</a>";
+          echo"<a class='nav-link text-white' href='myaccount.php'>|<i class='fab fa-user' aria-hidden='true'></i> My Account|</a>";
         }else {
-          echo"<a class='nav-link text-white' href='myaccount.php?my_orders'>|<i class='fa fa-user' aria-hidden='true'></i> My Account|</a>";
+          echo"<a class='nav-link text-white' href='myaccount.php?my_orders'>|<i class='fab fa-user' aria-hidden='true'></i> My Account|</a>";
         }
         
         
@@ -78,7 +78,7 @@ include_once("../func/func.php");
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="../header.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
+          <a class="nav-link" href="../index.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a> 
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../shop.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a> 

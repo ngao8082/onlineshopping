@@ -8,12 +8,7 @@ include_once("includes/head.php");
             <li class="breadcrumb-item active" aria-current="page" style="padding:0px;">Shop</li>
         </ul>
         <div class="row">
-            <div class="col-md-3 col-sm-3">
-                <?php
-                   include("includes/sidebar.php");
-                ?>
-            </div>
-            <div class="col-md-9 col-sm-9">
+            <div class="col-md-12 col-sm-12">
         
             <?php
             if (!isset($_GET['p_cat'])) {
@@ -31,7 +26,8 @@ include_once("includes/head.php");
                 ";
                 }
             }
-            ?> 
+            ?>
+            </div>
             <div class="row">
             
               <?php functionShop();?>

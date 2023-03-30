@@ -30,7 +30,7 @@ while ($fetchslider=mysqli_fetch_array($upselectsliders)) {
                 <?php echo $fetchslider['slider_name'] ?>
             </div>
             <div class="card-body">
-                <img src="sliderpic/<?php echo $fetchslider['slider_image'] ?>" alt="" class="img-responsive" srcset="">
+                <img src="sliderpic/<?php echo $fetchslider['slider_image'] ?>" alt="" class="img-thumbnail" srcset="">
 
             </div>
             <div class="card-footer text-muted">

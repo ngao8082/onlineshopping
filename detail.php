@@ -18,7 +18,7 @@ $cusemail=$drcartq['myemail'];
 }else {
     $pro_url=$_GET['pro_id'];
 } 
-    $get_products="select * from product where product_url='$pro_url'";
+    $get_products="select * from product where product_id='$pro_url'";
    $con_get_products=mysqli_query($dbs,$get_products);
    $check_product=mysqli_num_rows($con_get_products);
    if ($check_product<0) {
@@ -248,10 +248,10 @@ $cusemail=$drcartq['myemail'];
         </div>
         <?php
                     
-                        $get_from_pro="select * from product  order by rand () limit 0,3";
+                        $get_from_pro="select * from product  order by rand () limit 0,5";
                         $conne_get_from_pro = mysqli_query($dbs,$get_from_pro);
                         while ($row_get_from=mysqli_fetch_array($conne_get_from_pro)) {
-                            $pro_url = $row_get_from['product_url'];
+                            $pro_url = $row_get_from['product_id'];
                             $product_title = $row_get_from['product_title'];
                             $product_img1 = $row_get_from['product_img1'];
                             $product_price = $row_get_from['product_price'];
@@ -297,10 +297,10 @@ $cusemail=$drcartq['myemail'];
                             </div>
                             <div class='row'>
                             <div class='col-md-6 col-sm-6'>
-                                  <a href='detail.php?pro_id=$pro_url' class='btn btn-secondary btn-sm' >View detail</a>
+                                  <a href='detail.php?pro_id=$pro_url' class='btn btn-secondary btn-sm' >detail</a>
                              </div>
                              <div class='col-md-6 col-sm-6'>
-                                  <a href='detail.php?pro_id=$pro_url' class='btn btn-success btn-sm' >Add To Cart </a>
+                                  <a href='detail.php?pro_id=$pro_url' class='btn btn-success btn-sm' > Cart </a>
                              </div>
                             </div>
                             $product_label 
